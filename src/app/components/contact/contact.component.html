@@ -1,0 +1,97 @@
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-copy">Let's connect about frontend roles, internships, or collaboration.</p>
+    </div>
+
+    <div class="row g-4 align-items-stretch">
+      <div class="col-lg-5">
+        <mat-card class="contact-card h-100">
+          <mat-card-content>
+            <div class="contact-list">
+              <a href="mailto:shubhamvitukade96@gmail.com">
+                <mat-icon>mail</mat-icon>
+                <span>shubhamvitukade96@gmail.com</span>
+              </a>
+              <a href="tel:8530616494">
+                <mat-icon>call</mat-icon>
+                <span>8530616494</span>
+              </a>
+              <p>
+                <mat-icon>location_on</mat-icon>
+                <span>Pune, Maharashtra, India</span>
+              </p>
+            </div>
+
+            <div class="social-links">
+              @for (link of socialLinks; track link.label) {
+              <a [href]="link.href" target="_blank" rel="noreferrer">{{ link.label }}</a>
+              }
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div class="col-lg-7">
+        <mat-card class="contact-card h-100">
+          <mat-card-content>
+            <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name" />
+                    @if (nameControl.touched && nameControl.hasError('required')) {
+                    <mat-error>Name is required.</mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Email / Mobile</mat-label>
+                    <input matInput type="text" formControlName="contactInfo" />
+                    @if (contactInfoControl.touched && contactInfoControl.hasError('required')) {
+                    <mat-error>Email or mobile number is required.</mat-error>
+                    }
+                    @if (contactInfoControl.touched && contactInfoControl.hasError('emailOrPhone')) {
+                    <mat-error>Enter a valid email address or mobile number.</mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+
+                <div class="col-12">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Message</mat-label>
+                    <textarea matInput rows="5" formControlName="message"></textarea>
+                    @if (messageControl.touched && messageControl.hasError('required')) {
+                    <mat-error>Message is required.</mat-error>
+                    }
+                    @if (messageControl.touched && messageControl.hasError('minlength')) {
+                    <mat-error>Message should be at least 10 characters.</mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+
+                <div class="col-12 d-flex flex-column align-items-start gap-2">
+                  <button mat-flat-button color="primary" class="pill-button" type="submit" [disabled]="isSending()">
+                    {{ isSending() ? 'Sending...' : 'Send Message' }}
+                  </button>
+                  @if (submitted()) {
+                  <p class="success-note">Message sent successfully.</p>
+                  }
+                  @if (errorMessage()) {
+                  <p class="error-note">{{ errorMessage() }}</p>
+                  }
+                </div>
+              </div>
+            </form>
+
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</section>

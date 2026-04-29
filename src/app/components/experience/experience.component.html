@@ -1,0 +1,29 @@
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2 class="section-title">Experience</h2>
+      <p class="section-copy">Hands-on frontend experience from internship work and delivery.</p>
+    </div>
+
+    <mat-card class="experience-card mx-auto">
+      <mat-card-content>
+        <div class="experience-heading">
+          <div>
+            <h3>{{ experience.title }}</h3>
+            <p>{{ experience.company }}</p>
+          </div>
+          <span class="duration">{{ experience.duration }}</span>
+        </div>
+
+        <ul>
+          @for (highlight of experience.highlights; track highlight) {
+            <li>
+              <mat-icon>check_circle</mat-icon>
+              <span>{{ highlight }}</span>
+            </li>
+          }
+        </ul>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</section>

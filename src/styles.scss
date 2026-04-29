@@ -1,0 +1,195 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$portfolio-theme: mat.define-theme((color: (primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+        theme-type: light,
+      ),
+      typography: (plain-family: 'Inter, sans-serif',
+        brand-family: 'Manrope, sans-serif',
+      ),
+      density: (scale: 0,
+      ),
+    ));
+
+:root {
+  @include mat.all-component-themes($portfolio-theme);
+  --bg: #f4f7fb;
+  --surface: rgba(255, 255, 255, 0.9);
+  --surface-strong: #ffffff;
+  --text: #172033;
+  --muted: #5f6f86;
+  --line: rgba(23, 32, 51, 0.1);
+  --primary: #2563eb;
+  --primary-deep: #173ea8;
+  --shadow: 0 20px 60px rgba(37, 99, 235, 0.12);
+  --radius: 24px;
+  --nav-offset: 5rem;
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: 'Inter', sans-serif;
+  background:
+    radial-gradient(circle at top right, rgba(37, 99, 235, 0.08), transparent 28%),
+    linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
+  color: var(--text);
+}
+
+body {
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.section-title,
+.brand-copy strong,
+.eyebrow,
+.mat-mdc-card-title,
+.mat-mdc-card h3 {
+  font-family: 'Manrope', sans-serif;
+}
+
+body,
+p,
+li,
+span,
+a,
+button,
+input,
+textarea,
+.section-copy,
+.mat-mdc-button,
+.mdc-button__label,
+.mat-mdc-form-field,
+.mat-mdc-card-content {
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  width: min(100%, 1140px);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+[id] {
+  scroll-margin-top: var(--nav-offset);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.page-shell {
+  overflow-x: clip;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.section-title {
+  margin: 0 0 0.85rem;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.section-copy {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.section-header {
+  max-width: 720px;
+  margin: 0 auto 2.75rem;
+  text-align: center;
+}
+
+.glass-card,
+.mat-mdc-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius) !important;
+  background: var(--surface) !important;
+  box-shadow: var(--shadow) !important;
+  backdrop-filter: blur(16px);
+}
+
+.pill-button {
+  border-radius: 999px !important;
+  padding-inline: 1.35rem !important;
+}
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  background: rgba(37, 99, 235, 0.06);
+  color: var(--primary-deep);
+  font-weight: 600;
+}
+
+.fade-up {
+  animation: fadeUp 0.8s ease both;
+}
+
+.fade-up-delay {
+  animation: fadeUp 0.8s ease 0.15s both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 767.98px) {
+  :root {
+    --nav-offset: 5.25rem;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+}

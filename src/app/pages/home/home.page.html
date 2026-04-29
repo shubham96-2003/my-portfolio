@@ -1,0 +1,15 @@
+<div class="page-shell">
+  <app-navbar [links]="navLinks" (navigateTo)="scrollToSection($event)" />
+
+  <main>
+    <app-hero id="home" (viewProjects)="scrollToSection('projects')" />
+    <app-about id="about" />
+    <app-skills id="skills" [skills]="skills" />
+    <app-experience id="experience" [experience]="experience" />
+    <app-projects id="projects" [projects]="projects" />
+    <app-education id="education" [education]="education" />
+    <app-contact id="contact" [socialLinks]="socialLinks" />
+  </main>
+
+  <app-scroll-top />
+</div>
