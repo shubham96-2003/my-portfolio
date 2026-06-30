@@ -8,9 +8,11 @@
       </span>
     </button>
 
-    <button class="navbar-toggler border-0 shadow-none" type="button" [attr.aria-expanded]="isMenuOpen()"
-      aria-label="Toggle navigation" (click)="toggleMenu()">
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler border-0 shadow-none menu-toggle-btn" type="button" [attr.aria-expanded]="isMenuOpen()"
+      aria-label="Toggle navigation" (click)="toggleMenu()" [class.open]="isMenuOpen()">
+      <span class="hamburger-line top-line"></span>
+      <span class="hamburger-line middle-line"></span>
+      <span class="hamburger-line bottom-line"></span>
     </button>
 
     <div class="collapse navbar-collapse" [class.show]="isMenuOpen()">

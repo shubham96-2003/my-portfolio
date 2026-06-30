@@ -1,20 +1,24 @@
 <section class="section">
   <div class="container">
-    <div class="section-header fade-up">
+    <div class="section-header" appScrollReveal="reveal">
       <h2 class="section-title">Education</h2>
       <p class="section-copy">Academic foundation that supports my frontend learning journey.</p>
     </div>
 
-    <mat-card class="education-card mx-auto">
-      <mat-card-content>
-        <h3>{{ education.degree }}</h3>
-        <p>{{ education.college }}</p>
-        <p>{{ education.university }}</p>
-        <div class="education-meta">
-          <span>{{ education.year }}</span>
-          <span>{{ education.score }}</span>
-        </div>
-      </mat-card-content>
-    </mat-card>
+    <div class="education-grid">
+      @for (item of education; track item.degree) {
+      <mat-card class="education-card" appScrollReveal="reveal-stagger">
+        <mat-card-content>
+          <h3>{{ item.degree }}</h3>
+          <p>{{ item.college }}</p>
+          <p>{{ item.university }}</p>
+          <div class="education-meta">
+            <span>{{ item.year }}</span>
+            <span>{{ item.score }}</span>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      }
+    </div>
   </div>
 </section>

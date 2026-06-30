@@ -1,13 +1,13 @@
 <section class="section">
   <div class="container">
-    <div class="section-header fade-up">
+    <div class="section-header" appScrollReveal="reveal">
       <h2 class="section-title">Skills</h2>
       <p class="section-copy">Tools and technologies I use to build clean user interfaces.</p>
     </div>
 
     <div class="row g-4">
       @for (skill of skills; track skill.name) {
-        <div class="col-sm-6 col-lg-4">
+        <div class="col-sm-6 col-lg-4" appScrollReveal="reveal-stagger">
           <mat-card class="skill-card h-100">
             <mat-card-content>
               <mat-icon>{{ skill.icon }}</mat-icon>

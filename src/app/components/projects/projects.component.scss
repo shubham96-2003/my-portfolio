@@ -12,6 +12,11 @@
 img[mat-card-image] {
   aspect-ratio: 16 / 10;
   object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover img[mat-card-image] {
+  transform: scale(1.05);
 }
 
 mat-card-content {

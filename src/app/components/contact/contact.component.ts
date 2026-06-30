@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 
 import { emailJsConfig, isEmailJsConfigured } from '../../shared/config/emailjs.config';
+import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal.directive';
 import { SocialLink } from '../../shared/models/portfolio.models';
 
 function isValidEmail(value: string): boolean {
@@ -41,6 +42,7 @@ function emailOrPhoneValidator(control: AbstractControl): ValidationErrors | nul
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    ScrollRevealDirective,
   ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',

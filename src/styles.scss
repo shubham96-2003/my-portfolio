@@ -164,20 +164,74 @@ textarea {
   font-weight: 600;
 }
 
-.fade-up {
-  animation: fadeUp 0.8s ease both;
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.fade-up-delay {
-  animation: fadeUp 0.8s ease 0.15s both;
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
+
+.reveal-stagger {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.reveal-stagger.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@for $i from 1 through 10 {
+  .in-view.reveal-stagger:nth-child(#{$i}),
+  .in-view .reveal-stagger:nth-child(#{$i}) {
+    transition-delay: #{$i * 0.1}s;
+  }
+}
+
+.profile-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+.mat-mdc-button, .mat-mdc-flat-button, .mat-mdc-stroked-button {
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.mat-mdc-flat-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2) !important;
+}
+
+.mat-mdc-stroked-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(23, 32, 51, 0.08) !important;
+}
+
+.hero-reveal {
+  opacity: 0;
+  animation: fadeUp 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.hero-reveal-1 { animation-delay: 0.1s; }
+.hero-reveal-2 { animation-delay: 0.2s; }
+.hero-reveal-3 { animation-delay: 0.3s; }
+.hero-reveal-4 { animation-delay: 0.4s; }
 
 @keyframes fadeUp {
   from {
     opacity: 0;
     transform: translateY(24px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
